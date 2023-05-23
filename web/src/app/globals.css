@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  --webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #363441 #DFE9EB;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #585858;
+}
+
+
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #2d2d2e;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #000000;
+}
