@@ -30,6 +30,8 @@ app.register(authRoute);
 app.register(uploadRoute);
 app.register(memoriesRoute);
 
+app.get('/', async (request, reply) => reply.status(200).send({ started: 'Servidor on' }));
+
 app.listen({ port: 3333 }).then(() => {
 	console.log('Server listening on port 3333');
 });
