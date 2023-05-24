@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const code = searchParams.get("code");
 
-  const redirectTo = req.cookies.get('redirectTo')?.value;
+  const redirectTo = req.cookies.get("redirectTo")?.value;
 
   const registerResponse = await api.post("/register", { code });
   const { token } = registerResponse.data;
@@ -13,9 +13,11 @@ export async function GET(req: NextRequest) {
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 7;
 
-  return NextResponse.redirect(redirectUrl, {
+  NextResponse.redirect(redirectUrl, {
     headers: {
       "Set-Cookie": `token=${token}; path=/; max-age=${cookieExpiresInSeconds}`,
     },
   });
+
+  return NextResponse.next();
 }
