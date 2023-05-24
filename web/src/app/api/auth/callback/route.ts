@@ -13,11 +13,9 @@ export async function GET(req: NextRequest) {
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 7;
 
-  NextResponse.redirect(redirectUrl, {
+  return NextResponse.redirect(redirectUrl, {
     headers: {
       "Set-Cookie": `token=${token}; path=/; max-age=${cookieExpiresInSeconds}`,
     },
   });
-
-  return NextResponse.next();
 }
