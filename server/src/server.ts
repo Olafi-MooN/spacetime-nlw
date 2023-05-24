@@ -32,6 +32,8 @@ app.register(memoriesRoute);
 
 app.get('/', async (request, reply) => reply.status(200).send({ started: 'Servidor on' }));
 
-app.listen({ port: process.env.PORT ? parseInt(process.env.PORT) : 3333 }).then(() => {
+const port = Number(process.env.PORT) || 3333;
+
+app.listen({ port }).then(() => {
 	console.log('Server listening on port 3333');
 });
